@@ -1,12 +1,12 @@
-var eaw = {};
+var unicodeWidth = {};
 
 if ('undefined' == typeof module) {
-  window.eastasianwidth = eaw;
+  window.unicodeWidth = unicodeWidth;
 } else {
-  module.exports = eaw;
+  module.exports = unicodeWidth;
 }
 
-eaw.eastAsianWidth = function(character) {
+unicodeWidth.getWidth = function(character) {
   var x = character.charCodeAt(0);
   var y = (character.length == 2) ? character.charCodeAt(1) : 0;
   var codePoint = x;
@@ -32,9 +32,40 @@ eaw.eastAsianWidth = function(character) {
     return 'H';
   }
   if ((0x1100 <= codePoint && codePoint <= 0x115F) ||
-      (0x11A3 <= codePoint && codePoint <= 0x11A7) ||
-      (0x11FA <= codePoint && codePoint <= 0x11FF) ||
+      (0x231A <= codePoint && codePoint <= 0x231B) ||
       (0x2329 <= codePoint && codePoint <= 0x232A) ||
+      (0x23E9 <= codePoint && codePoint <= 0x23EC) ||
+      (0x23F0 == codePoint) ||
+      (0x23F3 == codePoint) ||
+      (0x25FD <= codePoint && codePoint <= 0x25FE) ||
+      (0x2614 <= codePoint && codePoint <= 0x2615) ||
+      (0x2648 <= codePoint && codePoint <= 0x2653) ||
+      (0x267F == codePoint) ||
+      (0x2693 == codePoint) ||
+      (0x26A1 == codePoint) ||
+      (0x26AA <= codePoint && codePoint <= 0x26AB) ||
+      (0x26BD <= codePoint && codePoint <= 0x26BE) ||
+      (0x26C4 <= codePoint && codePoint <= 0x26C5) ||
+      (0x26CE == codePoint) ||
+      (0x26D4 == codePoint) ||
+      (0x26EA == codePoint) ||
+      (0x26F2 <= codePoint && codePoint <= 0x26F3) ||
+      (0x26F5 == codePoint) ||
+      (0x26FA == codePoint) ||
+      (0x26FD == codePoint) ||
+      (0x2705 == codePoint) ||
+      (0x270A <= codePoint && codePoint <= 0x270B) ||
+      (0x2728 == codePoint) ||
+      (0x274C == codePoint) ||
+      (0x274E == codePoint) ||
+      (0x2753 <= codePoint && codePoint <= 0x2755) ||
+      (0x2757 == codePoint) ||
+      (0x2795 <= codePoint && codePoint <= 0x2797) ||
+      (0x27B0 == codePoint) ||
+      (0x27BF == codePoint) ||
+      (0x2B1B <= codePoint && codePoint <= 0x2B1C) ||
+      (0x2B50 == codePoint) ||
+      (0x2B55 == codePoint) ||
       (0x2E80 <= codePoint && codePoint <= 0x2E99) ||
       (0x2E9B <= codePoint && codePoint <= 0x2EF3) ||
       (0x2F00 <= codePoint && codePoint <= 0x2FD5) ||
@@ -54,20 +85,55 @@ eaw.eastAsianWidth = function(character) {
       (0xA490 <= codePoint && codePoint <= 0xA4C6) ||
       (0xA960 <= codePoint && codePoint <= 0xA97C) ||
       (0xAC00 <= codePoint && codePoint <= 0xD7A3) ||
-      (0xD7B0 <= codePoint && codePoint <= 0xD7C6) ||
-      (0xD7CB <= codePoint && codePoint <= 0xD7FB) ||
       (0xF900 <= codePoint && codePoint <= 0xFAFF) ||
       (0xFE10 <= codePoint && codePoint <= 0xFE19) ||
       (0xFE30 <= codePoint && codePoint <= 0xFE52) ||
       (0xFE54 <= codePoint && codePoint <= 0xFE66) ||
       (0xFE68 <= codePoint && codePoint <= 0xFE6B) ||
+      (0x16FE0 == codePoint) ||
+      (0x17000 <= codePoint && codePoint <= 0x187EC) ||
+      (0x18800 <= codePoint && codePoint <= 0x18AF2) ||
       (0x1B000 <= codePoint && codePoint <= 0x1B001) ||
+      (0x1F004 == codePoint) ||
+      (0x1F0CF == codePoint) ||
+      (0x1F18E == codePoint) ||
+      (0x1F191 <= codePoint && codePoint <= 0x1F19A) ||
       (0x1F200 <= codePoint && codePoint <= 0x1F202) ||
-      (0x1F210 <= codePoint && codePoint <= 0x1F23A) ||
+      (0x1F210 <= codePoint && codePoint <= 0x1F23B) ||
       (0x1F240 <= codePoint && codePoint <= 0x1F248) ||
       (0x1F250 <= codePoint && codePoint <= 0x1F251) ||
-      (0x20000 <= codePoint && codePoint <= 0x2F73F) ||
-      (0x2B740 <= codePoint && codePoint <= 0x2FFFD) ||
+      (0x1F300 <= codePoint && codePoint <= 0x1F320) ||
+      (0x1F32D <= codePoint && codePoint <= 0x1F335) ||
+      (0x1F337 <= codePoint && codePoint <= 0x1F37C) ||
+      (0x1F37E <= codePoint && codePoint <= 0x1F393) ||
+      (0x1F3A0 <= codePoint && codePoint <= 0x1F3CA) ||
+      (0x1F3CF <= codePoint && codePoint <= 0x1F3D3) ||
+      (0x1F3E0 <= codePoint && codePoint <= 0x1F3F0) ||
+      (0x1F3F4 == codePoint) ||
+      (0x1F3F8 <= codePoint && codePoint <= 0x1F43E) ||
+      (0x1F440 == codePoint) ||
+      (0x1F442 <= codePoint && codePoint <= 0x1F4FC) ||
+      (0x1F4FF <= codePoint && codePoint <= 0x1F53D) ||
+      (0x1F54B <= codePoint && codePoint <= 0x1F54E) ||
+      (0x1F550 <= codePoint && codePoint <= 0x1F567) ||
+      (0x1F57A == codePoint) ||
+      (0x1F595 <= codePoint && codePoint <= 0x1F596) ||
+      (0x1F5A4 == codePoint) ||
+      (0x1F5FB <= codePoint && codePoint <= 0x1F64F) ||
+      (0x1F680 <= codePoint && codePoint <= 0x1F6C5) ||
+      (0x1F6CC == codePoint) ||
+      (0x1F6D0 <= codePoint && codePoint <= 0x1F6D2) ||
+      (0x1F6EB <= codePoint && codePoint <= 0x1F6EC) ||
+      (0x1F6F4 <= codePoint && codePoint <= 0x1F6F6) ||
+      (0x1F910 <= codePoint && codePoint <= 0x1F91E) ||
+      (0x1F920 <= codePoint && codePoint <= 0x1F927) ||
+      (0x1F930 == codePoint) ||
+      (0x1F933 <= codePoint && codePoint <= 0x1F93E) ||
+      (0x1F940 <= codePoint && codePoint <= 0x1F94B) ||
+      (0x1F950 <= codePoint && codePoint <= 0x1F95E) ||
+      (0x1F980 <= codePoint && codePoint <= 0x1F991) ||
+      (0x1F9C0 == codePoint) ||
+      (0x20000 <= codePoint && codePoint <= 0x2FFFD) ||
       (0x30000 <= codePoint && codePoint <= 0x3FFFD)) {
     return 'W';
   }
@@ -222,7 +288,6 @@ eaw.eastAsianWidth = function(character) {
       (0x2605 <= codePoint && codePoint <= 0x2606) ||
       (0x2609 == codePoint) ||
       (0x260E <= codePoint && codePoint <= 0x260F) ||
-      (0x2614 <= codePoint && codePoint <= 0x2615) ||
       (0x261C == codePoint) ||
       (0x261E == codePoint) ||
       (0x2640 == codePoint) ||
@@ -233,15 +298,20 @@ eaw.eastAsianWidth = function(character) {
       (0x266C <= codePoint && codePoint <= 0x266D) ||
       (0x266F == codePoint) ||
       (0x269E <= codePoint && codePoint <= 0x269F) ||
-      (0x26BE <= codePoint && codePoint <= 0x26BF) ||
-      (0x26C4 <= codePoint && codePoint <= 0x26CD) ||
-      (0x26CF <= codePoint && codePoint <= 0x26E1) ||
+      (0x26BF == codePoint) ||
+      (0x26C6 <= codePoint && codePoint <= 0x26CD) ||
+      (0x26CF <= codePoint && codePoint <= 0x26D3) ||
+      (0x26D5 <= codePoint && codePoint <= 0x26E1) ||
       (0x26E3 == codePoint) ||
-      (0x26E8 <= codePoint && codePoint <= 0x26FF) ||
+      (0x26E8 <= codePoint && codePoint <= 0x26E9) ||
+      (0x26EB <= codePoint && codePoint <= 0x26F1) ||
+      (0x26F4 == codePoint) ||
+      (0x26F6 <= codePoint && codePoint <= 0x26F9) ||
+      (0x26FB <= codePoint && codePoint <= 0x26FC) ||
+      (0x26FE <= codePoint && codePoint <= 0x26FF) ||
       (0x273D == codePoint) ||
-      (0x2757 == codePoint) ||
       (0x2776 <= codePoint && codePoint <= 0x277F) ||
-      (0x2B55 <= codePoint && codePoint <= 0x2B59) ||
+      (0x2B56 <= codePoint && codePoint <= 0x2B59) ||
       (0x3248 <= codePoint && codePoint <= 0x324F) ||
       (0xE000 <= codePoint && codePoint <= 0xF8FF) ||
       (0xFE00 <= codePoint && codePoint <= 0xFE0F) ||
@@ -249,18 +319,27 @@ eaw.eastAsianWidth = function(character) {
       (0x1F100 <= codePoint && codePoint <= 0x1F10A) ||
       (0x1F110 <= codePoint && codePoint <= 0x1F12D) ||
       (0x1F130 <= codePoint && codePoint <= 0x1F169) ||
-      (0x1F170 <= codePoint && codePoint <= 0x1F19A) ||
+      (0x1F170 <= codePoint && codePoint <= 0x1F18D) ||
+      (0x1F18F <= codePoint && codePoint <= 0x1F190) ||
+      (0x1F19B <= codePoint && codePoint <= 0x1F1AC) ||
       (0xE0100 <= codePoint && codePoint <= 0xE01EF) ||
       (0xF0000 <= codePoint && codePoint <= 0xFFFFD) ||
       (0x100000 <= codePoint && codePoint <= 0x10FFFD)) {
     return 'A';
   }
+  if ((0x3400 <= codePoint && codePoint <= 0x4DBF) ||
+      (0x4E00 <= codePoint && codePoint <= 0x9FFF) ||
+      (0xF900 <= codePoint && codePoint <= 0xFAFF) ||
+      (0x20000 <= codePoint && codePoint <= 0x2FFFD) ||
+      (0x30000 <= codePoint && codePoint <= 0x3FFFD)) {
+    return 'W';
+  }
 
   return 'N';
 };
 
-eaw.characterLength = function(character) {
-  var code = this.eastAsianWidth(character);
+unicodeWidth.characterLength = function(character) {
+  var code = this.getWidth(character);
   if (code == 'F' || code == 'W' || code == 'A') {
     return 2;
   } else {
@@ -268,7 +347,7 @@ eaw.characterLength = function(character) {
   }
 };
 
-eaw.length = function(string) {
+unicodeWidth.length = function(string) {
   var len = 0;
   for (var i = 0; i < string.length; i++) {
     len = len + this.characterLength(string.charAt(i));
@@ -276,7 +355,7 @@ eaw.length = function(string) {
   return len;
 };
 
-eaw.slice = function(text, start, end) {
+unicodeWidth.slice = function(text, start, end) {
   start = start ? start : 0;
   end = end ? end : 1;
   var result = '';

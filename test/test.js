@@ -1,83 +1,83 @@
 var assert = require('assert'),
-    eaw = require('../eastasianwidth');
+    uw = require('../unicodeWidth');
 
-describe('eastAsianWidth', function() {
+describe('unicode-width', function() {
   it('Fullwidth', function() {
-    assert.equal('F', eaw.eastAsianWidth('￠'));
-    assert.equal('F', eaw.eastAsianWidth('￦'));
+    assert.equal('F', uw.getWidth('￠'));
+    assert.equal('F', uw.getWidth('￦'));
   });
 
   it('Halfwidth', function() {
-    assert.equal('H', eaw.eastAsianWidth('｡'));
-    assert.equal('H', eaw.eastAsianWidth('ￜ'));
+    assert.equal('H', uw.getWidth('｡'));
+    assert.equal('H', uw.getWidth('ￜ'));
   });
 
   it('Wide', function() {
-    assert.equal('W', eaw.eastAsianWidth('ㄅ'));
-    assert.equal('W', eaw.eastAsianWidth('뀀'));
+    assert.equal('W', uw.getWidth('ㄅ'));
+    assert.equal('W', uw.getWidth('뀀'));
   });
 
   it('Narrow', function() {
-    assert.equal('Na', eaw.eastAsianWidth('¢'));
-    assert.equal('Na', eaw.eastAsianWidth('⟭'));
-    assert.equal('Na', eaw.eastAsianWidth('a'));
+    assert.equal('Na', uw.getWidth('¢'));
+    assert.equal('Na', uw.getWidth('⟭'));
+    assert.equal('Na', uw.getWidth('a'));
   });
 
   it('Ambiguous', function() {
-    assert.equal('A', eaw.eastAsianWidth('⊙'));
-    assert.equal('A', eaw.eastAsianWidth('①'));
+    assert.equal('A', uw.getWidth('⊙'));
+    assert.equal('A', uw.getWidth('①'));
   });
 
   it('Natural', function() {
-    assert.equal('N', eaw.eastAsianWidth('ب'));
-    assert.equal('N', eaw.eastAsianWidth('ف'));
+    assert.equal('N', uw.getWidth('ب'));
+    assert.equal('N', uw.getWidth('ف'));
   });
 });
 
 describe('characterLength', function() {
   it('Fullwidth', function() {
-    assert.equal(2, eaw.characterLength('￠'));
-    assert.equal(2, eaw.characterLength('￦'));
+    assert.equal(2, uw.characterLength('￠'));
+    assert.equal(2, uw.characterLength('￦'));
   });
 
   it('Halfwidth', function() {
-    assert.equal(1, eaw.characterLength('｡'));
-    assert.equal(1, eaw.characterLength('ￜ'));
+    assert.equal(1, uw.characterLength('｡'));
+    assert.equal(1, uw.characterLength('ￜ'));
   });
 
   it('Wide', function() {
-    assert.equal(2, eaw.characterLength('ㄅ'));
-    assert.equal(2, eaw.characterLength('뀀'));
+    assert.equal(2, uw.characterLength('ㄅ'));
+    assert.equal(2, uw.characterLength('뀀'));
   });
 
   it('Narrow', function() {
-    assert.equal(1, eaw.characterLength('¢'));
-    assert.equal(1, eaw.characterLength('⟭'));
-    assert.equal(1, eaw.characterLength('a'));
+    assert.equal(1, uw.characterLength('¢'));
+    assert.equal(1, uw.characterLength('⟭'));
+    assert.equal(1, uw.characterLength('a'));
   });
 
   it('Ambiguous', function() {
-    assert.equal(2, eaw.characterLength('⊙'));
-    assert.equal(2, eaw.characterLength('①'));
+    assert.equal(2, uw.characterLength('⊙'));
+    assert.equal(2, uw.characterLength('①'));
   });
 
   it('Natural', function() {
-    assert.equal(1, eaw.characterLength('ب'));
-    assert.equal(1, eaw.characterLength('ف'));
+    assert.equal(1, uw.characterLength('ب'));
+    assert.equal(1, uw.characterLength('ف'));
   });
 });
 
 
 describe('length', function() {
   it('Fullwidth', function() {
-    assert.equal(10, eaw.length('あいうえお'));
+    assert.equal(10, uw.length('あいうえお'));
   });
 
   it('Halfwidth', function() {
-    assert.equal(7, eaw.length('abcdefg'));
+    assert.equal(7, uw.length('abcdefg'));
   });
 
   it('Mixed', function() {
-    assert.equal(19, eaw.length('￠￦｡ￜㄅ뀀¢⟭a⊙①بف'));
+    assert.equal(19, uw.length('￠￦｡ￜㄅ뀀¢⟭a⊙①بف'));
   });
 });

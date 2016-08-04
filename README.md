@@ -1,4 +1,4 @@
-# East Asian Width
+# Unicode Width
 
 Get [East Asian Width](http://www.unicode.org/reports/tr11/) from a character.
 
@@ -8,25 +8,25 @@ Original Code is [東アジアの文字幅 (East Asian Width) の判定 - 中途
 
 ## Install
 
-    $ npm install eastasianwidth
+    $ npm install unicode-width
 
 ## Usage
 
-    var eaw = require('eastasianwidth');
-    console.log(eaw.eastAsianWidth('￦')) // 'F'
-    console.log(eaw.eastAsianWidth('｡')) // 'H'
-    console.log(eaw.eastAsianWidth('뀀')) // 'W'
-    console.log(eaw.eastAsianWidth('a')) // 'Na'
-    console.log(eaw.eastAsianWidth('①')) // 'A'
-    console.log(eaw.eastAsianWidth('ف')) // 'N'
+    var uw = require('unicode-width');
+    console.log(uw.getWidth('￦')) // 'F'
+    console.log(uw.getWidth('｡')) // 'H'
+    console.log(uw.getWidth('뀀')) // 'W'
+    console.log(uw.getWidth('a')) // 'Na'
+    console.log(uw.getWidth('①')) // 'A'
+    console.log(uw.getWidth('ف')) // 'N'
 
-    console.log(eaw.characterLength('￦')) // 2
-    console.log(eaw.characterLength('｡')) // 1
-    console.log(eaw.characterLength('뀀')) // 2
-    console.log(eaw.characterLength('a')) // 1
-    console.log(eaw.characterLength('①')) // 2
-    console.log(eaw.characterLength('ف')) // 1
+    console.log(uw.characterLength('￦')) // 2
+    console.log(uw.characterLength('｡')) // 1
+    console.log(uw.characterLength('뀀')) // 2
+    console.log(uw.characterLength('a')) // 1
+    console.log(uw.characterLength('①')) // 2
+    console.log(uw.characterLength('ف')) // 1
 
-    console.log(eaw.length('あいうえお')) // 10
-    console.log(eaw.length('abcdefg')) // 7
-    console.log(eaw.length('￠￦｡ￜㄅ뀀¢⟭a⊙①بف')) // 19
+    console.log(uw.length('あいうえお')) // 10
+    console.log(uw.length('abcdefg')) // 7
+    console.log(uw.length('￠￦｡ￜㄅ뀀¢⟭a⊙①بف')) // 19

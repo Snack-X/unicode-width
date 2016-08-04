@@ -1,18 +1,21 @@
 {
-  "name": "eastasianwidth",
-  "version": "0.1.1",
-  "description": "Get East Asian Width from a character.",
-  "main": "eastasianwidth.js",
+  "name": "unicode-width",
+  "version": "0.2.0",
+  "description": "Get Unicode Width from a character.",
+  "main": "unicodeWidth.js",
   "files": [
-    "eastasianwidth.js"
+    "unicodeWidth.js"
   ],
   "scripts": {
     "test": "mocha"
   },
-  "repository": "git://github.com/komagata/eastasianwidth.git",
-  "author": "Masaki Komagata",
+  "repository": "git://github.com/Snack-X/unicode-width.git",
+  "author": [
+    "Masaki Komagata",
+    "Snack <korsnack@korsnack.kr>"
+  ],
   "license": "MIT",
   "devDependencies": {
-    "mocha": "~1.9.0"
+    "mocha": "~3.0.1"
   }
 }
